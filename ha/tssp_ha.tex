@@ -22,6 +22,7 @@
 %  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
 \usepackage{caption}
 
+\usepackage{url} % to use \url{link to web}
 
 \usepackage{fancyhdr} % весёлые колонтитулы
 \pagestyle{fancy}
@@ -215,13 +216,69 @@ Deadline: 9 October 2020, 21:00 MSK.
 
 
 \newpage
-\section*{Home Assignment 2}
+\lfoot{Publication: 2020-11-04, 21:40:00}
+\rfoot{\url{https://forms.gle/LivmsZfFmgSuB6eY6}}
+\section*{Home Assignment 3}
 \begin{enumerate}
-  \item 
+  \item Consider the Vasicek interest rate model, 
+  \[
+    dR_t=a(b-R_t) \, dt+\sigma \, dW_t.
+  \]
+  Here $R_t$ is the interest rate and $a$, $b$ and $\sigma$ are positive constants.
+  \begin{enumerate}
+  \item Using the substitution $Y_t=e^{at} R_t$ find the solution of the stochastic differential equation;
+  \item Find $\E(R_t)$ and $\Var(R_t)$.
+  \item Which value in this model would you call long-term equilibrium rate and why?
+  \end{enumerate}
+
+  \item Let $X_t$ be the exchange rate measured in roubles per dollar. 
+  We suppose that $dX_t = \mu X_t dt + \sigma X_t dW_t$. 
+  
+  Consider the inverse exchange rate $Y_t = 1/X_t$ measured in dollars per rouble. 
+  
+  Write the stochastic differential equation for $dY_t$. 
+  The equation may contain $Y_t$ and constants, but not $X_t$.
+
+  \item Let $W_t^a$ and $W_t^b$ be two independent Wiener processes.
+  Consider the process $Q_t = \alpha W_t^a + \beta W_t^b$, where $\alpha^2 + \beta^2 = 1$.
+
+  \begin{enumerate}
+    \item Is $Q_t$ a Wiener process? Carefully check all the assumptions. 
+  \item Find the limit in $L^2$ for $n\to\infty$ of 
+\[
+A_n = \sum_{i=1}^{n} \left(W^a(it/n) - W^a((i-1)t/n)\right)\left(W^b(it/n) - W^b((i-1)t/n)\right) 
+\]
+
+\item Find the limit in $L^2$ for $n\to\infty$ of
+\[
+B_n = \sum_{i=1}^{n} \left(Q(it/n) - Q((i-1)t/n)\right)\left(W^b(it/n) - W^b((i-1)t/n)\right) 
+\]
+\item Find $\Corr(Q_t, W_t^b)$.
+
+\item Without formal proof guess the value of $dQ_t dW_b^t$ in the Ito's lemma for correlated Wiener processes.
+\end{enumerate}
+
+\item Consider the Cox-Ingersoll-Ross interest rate model
+\[
+  dR_t=a(b-R_t) \, dt+\sigma \sqrt{R_t} \, dW_t.
+\]
+Here $R_t$ is the interest rate and $a$, $b$ and $\sigma$ are positive constants.
+
+
+Find $\E(R_t)$ and $\Var(R_t)$.
+
+
+\item The share price $S_t$ satisfies the Black and Scholes model and $dX_t = t dS_t$. 
+
+Find $\E(X_t)$ and $\Var(X_t)$.
+
+
+
 \end{enumerate}
 
 
-Deadline: 25 September 2020, 21:00 MSK.
+
+% Deadline: 25 September 2020, 21:00 MSK.
 
 
 \end{document}
