@@ -77,6 +77,8 @@
 \DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator{\tr}{trace}
 \DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\pCorr}{\mathrm{p}\mathbb{C}\mathrm{orr}}
+
 
 \newcommand \hb{\hat{\beta}}
 \newcommand \hs{\hat{\sigma}}
@@ -279,6 +281,73 @@ Find $\E(X_t)$ and $\Var(X_t)$.
 
 
 % Deadline: 25 September 2020, 21:00 MSK.
+
+
+\newpage
+\lfoot{Publication: 2020-11-21, 20:20:20}
+
+
+\begin{enumerate}
+
+\item Consider the Black and Scholes model. At time $T > 1$ the asset pays you
+\[
+  X_T = \begin{cases} 
+    \ln S_T, \text{ if } S_T > 1; \\
+    0, \text{ otherwise.}
+  \end{cases}
+\]
+
+Today is $t=1$. Find the current price $X_1$ of this asset.
+
+  \item Пусть $y_{t}$ — стационарный процесс. Проверьте стационарность процессов:
+  \begin{enumerate}
+  \item $a_{t}=\Delta^2 y_{t}$;
+  \item $b_{t}=2y_{t}+3y_{t-1} + 18$.
+  \end{enumerate}
+
+\item  Правильный кубик подбрасывают три раза, обозначим результаты подбрасываний $X_1$, $X_2$ и $X_3$. 
+Также ввёдем обозначения для сумм $L=X_1+X_2$, $R=X_2+X_3$ и $S=X_1+X_2+X_3$.
+\begin{enumerate}
+\item С помощью качественных рассуждений (без вычислений) определите знаки частных корреляций\footnote{Запись $\pCorr(X, Y; Z)$ означает частную корреляцию между $X$ и $Y$, «очищенных» от эффекта $Z$.}
+$\pCorr(L, R; S)$,
+  $\pCorr(L, S; R)$,  $\pCorr(X_1, R; S)$. 
+%   Буквально одной-двумя фразами аргументируйте знак каждой частной корреляции.
+  \item Найдите точное значение каждой частной корреляции.
+\end{enumerate}
+
+
+% \item Пусть $u_t$ — белый шум. Рассмотрим процесс $y_t=4+0.5y_{t-1}+u_t$ при $t\geq 1$ с различными начальными условиями.
+
+% Найдите $\E(y_t)$, $\Var(y_t)$ и определите, является ли процесс стационарным, если:
+% \begin{enumerate}
+% \item $y_1=8+u_1$;
+% \item $y_1=8+\frac{2}{\sqrt{3}}u_1$;
+% \end{enumerate}
+
+\item У эконометрессы Ефросиньи был стационарный ряд $(y_t)$, $t\geq 1$ с $\E(y_t)=5$. $\Var(y_t) = 16$ 
+и $\Cov(y_t, y_{t-1})= 4$.
+
+Ефросинье было скучно и она подбрасывала неправильную монетку, выпадающую орлом с вероятностью $0.7$. 
+Если выпадал орёл, она оставляла очередной $y_t$, если решка — то зачёркивала. 
+
+Обозначим полученную новую последовательность $(z_t)$.
+
+\begin{enumerate}
+  \item Является ли $(z_t)$ стационарным?
+ \item Найдите $\E(z_t)$, $\Var(z_t)$ и $\Cov(z_t, z_{t-1})$.
+\end{enumerate}
+
+\item Рассмотрим стационарное решение $(y_t)$ уравнения $y_t = 6 + 0.5 y_{t-1} + u_t -0.3 u_{t-1}$, где $(u_t)$ — белый шум.
+
+\begin{enumerate}
+  \item Найдите $\E(y_t)$ и $\Var(y_t)$.
+  \item Найдите первые три значения автокорреляционной функции.
+  \item Найдите первые три значения частной автокорреляционной функции.
+\end{enumerate}
+
+
+\end{enumerate}
+
 
 
 \end{document}
