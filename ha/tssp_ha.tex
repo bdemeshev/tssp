@@ -351,5 +351,40 @@ Hint: для данного случая есть теорема, которая
 \end{enumerate}
 
 
+\newpage
+\lfoot{Publication: 2020-12-15, 09:00:00}
+
+\begin{enumerate}
+  \item Consider $y_t$ described by $ETS(MMM)$ model. You can find all the equations in \url{https://otexts.com/fpp3/}.
+  Is it true that $z_t = \ln y_t$ is exactly described by $ETS(AAA)$ model? Approximately?
+  \item  Consider $ETS(AA_dN)$ model with $\phi = 0.9$, $\alpha=0.3$, $\beta=0.1$ and $\sigma^2=16$. 
+  Express 95\% predictive intervals for $y_{t+1}$ and $y_{t+2}$ in terms of $\ell_t$, $b_t$, $y_t$ and $u_t$. 
+  \item Find $\E(y_t)$, $\Var(y_t)$, $\Cov(y_t, y_{t+1})$ in the $ETS(AAN)$ model with given $\ell_0$, $b_0$, $\alpha$, $\beta$ and $\sigma^2$.
+  \item Consider stationary $ARMA(1, 1)$ process, $y_t = 0.7 y_{t-1} + u_t + 0.2 u_{t-1}$, where $\Var(u_t) = 16$.
+  \begin{enumerate}
+    \item Find $\E(y_{t+1} \mid y_t, u_t)$ and $\Var(y_{t+1} \mid y_t, u_t)$;
+    \item Find $\E(y_{t+1} \mid y_t)$ and $\Var(y_{t+1} \mid y_t)$.
+  \end{enumerate}
+  \item Consider the equation $y_t - 2.5 y_{t-1} + y_{t-2} = u_t$, where $u_t$ is a white noise.
+  
+  \begin{enumerate}
+    \item Does it have any stationary solution of the form $y_t = u_t  + \alpha_{1} u_{t-1} + \alpha_{1} u_{t-1} + \ldots$?
+    
+    If yes then find $\alpha_1$, $\alpha_2$, $\alpha_3$.
+
+    \item (*) Does it have any stationary solution of the form $y_t = \ldots + \alpha_{-1} u_{t+1} + \alpha_0 u_t + \alpha_{1} u_{t-1} + \ldots$?
+
+    If yes then find $\alpha_{-1}$, $\alpha_0$, $\alpha_1$.
+
+    Hint: $(1-2.5L - 0.5L^2) = (1 - 2L) (1 - 0.5L)$.
+
+  \end{enumerate}
+  
+  
+\end{enumerate}
+
+
+You can find more problems in the problem book draft, \url{https://github.com/bdemeshev/ts_pset}.
+
 
 \end{document}
