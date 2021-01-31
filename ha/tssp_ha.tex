@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage{physics}
+
+
 \usepackage{tikz} % картинки в tikz
 \usepackage{microtype} % свешивание пунктуации
 
@@ -74,8 +77,12 @@
 \DeclareMathOperator{\Cov}{\mathbb{C}ov}
 \DeclareMathOperator{\Corr}{\mathbb{C}orr}
 \DeclareMathOperator{\Var}{\mathbb{V}ar}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
 \DeclareMathOperator{\E}{\mathbb{E}}
-\DeclareMathOperator{\tr}{trace}
+% \DeclareMathOperator{\tr}{trace}
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\pCorr}{\mathrm{p}\mathbb{C}\mathrm{orr}}
 
@@ -387,4 +394,39 @@ Hint: для данного случая есть теорема, которая
 You can find more problems in the problem book draft, \url{https://github.com/bdemeshev/ts_pset}.
 
 
+
+\newpage
+\lfoot{Publication: }
+
+\begin{enumerate}
+  \item DFT
+  \item H
+\end{enumerate}
+
+
+\newpage
+\begin{enumerate}
+  \item You know that $\E((X - 20)^6) = 1000$ and $\E(X) = 20$.
+  
+  What are the possible values for $\P(\abs{X-20} \geq 20)$?
+  
+  \item The loose milk price at day $t$ is $M_t$. 
+  The variables $(M_t)$ are independent and identically distributed with $\E(M_t) = 100$ 
+  roubles per liter. 
+  
+  Every day Masha buys one liter of milk. Every day Sasha buys loose milk exactly for 100 roubles. 
+
+  After 30 days Masha and Sasha compares their spendings. Let's denote by $X^S$ and $X^M$ the 
+  total expenditures by Sasha and Masha. And let's denote by $Q^S$ and $Q^M$ the total volume
+  of milk bought by Sasha and Masha. 
+
+  \begin{enumerate}
+    \item Compare $\E(X^S)$ and $\E(X^M)$.
+    \item Compare $\E(Q^S)$ and $\E(Q^M)$.
+\end{enumerate}
+
+  \item The moment generating function 
+\end{enumerate}
+
 \end{document}
+
