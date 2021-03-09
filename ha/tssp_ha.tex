@@ -393,7 +393,67 @@ Hint: для данного случая есть теорема, которая
 
 You can find more problems in the problem book draft, \url{https://github.com/bdemeshev/ts_pset}.
 
+\newpage
+\lfoot{Publication: }
 
+Beta distribution $Beta(a, b)$ has density function $f(x)$ proportional to $x^{a-1} (1-x)^{b-1}$ on $[0;1]$.
+The proportionality constant depends on $a$ and $b$. 
+
+Gamma distribution $Gamma(\lambda, k)$ has density function $f(x)$ proportional to $x^{k-1} \lambda^k \exp(-\lambda x)$ on $[0;+\infty)$.
+The proportionality constant depends on $k$. 
+
+You can find more information about these distributions on Wikipedia or elsewhere, I believe in you! :)
+
+
+
+\begin{enumerate}
+
+\item Consider a random sample $Y_1$, $Y_2$, \ldots, $Y_n$ from uniform distribution
+on $[-a; 7a]$.
+\begin{enumerate}
+  \item Find method of moments estimator for $a$ using $\E(Y_i)$.
+  \item Find method of moments estimator for $a$ using $\E(\abs{Y_i})$.
+  \item Are these method of moments estimators unbiased?
+  \item Which method of moments estimator has lowest mean squared error?
+  \item Find the maximum likelihood estimator of $a$.
+\end{enumerate}
+
+
+  \item Find the moment generating function for the $Gamma(\lambda, k)$ distribution.
+
+  \item Find sufficient statistics for unknown parameters:
+  \begin{enumerate}
+    \item Beta distribution $Beta(a, b)$ with unknown $a$ and $b$.
+    \item Beta distribution $Beta(a, b)$ with known $a$ and unknown $b$.
+    \item Gamma distribution $Gamma(\lambda, k)$ with unknown $\lambda$ and $k$.
+    \item Gamma distribution $Gamma(\lambda, k)$ with known $k$ and unknown $\lambda$.
+  \end{enumerate}
+
+  \item The log-density function has the following form:
+  \[
+  \ln f(x \mid \theta_1, \theta_2) = a(x) - b(\theta_1, \theta_2) + \theta_1 c_1(x) + \theta_2 c_2(x),  
+  \]
+  where $a$, $b$, $c_1$ and $c_2$ are some known functions. 
+
+  \begin{enumerate}
+    \item Find the sufficient statistics for unknown $\theta_1$, $\theta_2$.
+    \item Find the sufficient statistics for unknown $\theta_1$ with known $\theta_2$.
+    \item Express $\E(c_1(X))$ using the function $b(\theta_1, \theta_2)$.
+    \item Express $\Cov(c_1(X), c_2(X))$ using the function $b(\theta_1, \theta_2)$.
+  \end{enumerate}
+
+  Hint for the last two points: what are the expected value and the variance of the score-function?
+
+  \item The estimator $\hat\theta$ is unbiased but not necessary obtained by maximum likelihood.
+  
+  Find $\Cov(\hat\theta, \partial \ell/\partial \theta)$ where $\ell$ is the log-likelihood function. 
+
+
+\end{enumerate}
+
+
+
+\begin{comment}
 
 \newpage
 \lfoot{Publication: }
@@ -427,6 +487,9 @@ You can find more problems in the problem book draft, \url{https://github.com/bd
 
   \item The moment generating function 
 \end{enumerate}
+
+\end{comment}
+
 
 \end{document}
 
