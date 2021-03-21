@@ -421,6 +421,7 @@ on $[-a; 7a]$.
 
   \item Find the moment generating function for the $Gamma(\lambda, k)$ distribution.
 
+
   \item Find sufficient statistics for unknown parameters:
   \begin{enumerate}
     \item Beta distribution $Beta(a, b)$ with unknown $a$ and $b$.
@@ -453,18 +454,12 @@ on $[-a; 7a]$.
 
 
 
-\begin{comment}
 
 \newpage
 \lfoot{Publication: }
 
-\begin{enumerate}
-  \item DFT
-  \item H
-\end{enumerate}
+A little bit of inequalities\ldots 
 
-
-\newpage
 \begin{enumerate}
   \item You know that $\E((X - 20)^6) = 1000$ and $\E(X) = 20$.
   
@@ -483,12 +478,66 @@ on $[-a; 7a]$.
   \begin{enumerate}
     \item Compare $\E(X^S)$ and $\E(X^M)$.
     \item Compare $\E(Q^S)$ and $\E(Q^M)$.
+  \end{enumerate}
+
 \end{enumerate}
 
-  \item The moment generating function 
+A little bit of estimation\ldots 
+
+\begin{enumerate}[resume]
+  \item Kazimir Malevich draws random black rectangles. One side of a rectangle, $A_i$, is approximately normally distributed $\cN(a; 1)$,
+  the other side, $B_i$, is approximately $\cN(b, 1)$.
+  All variables are independent. 
+
+  \begin{enumerate}
+    \item Calculate $\E(S_i)$ and $\E(S_i^2)$.
+    \item You have recorded data of area for 100 paintings: $S_i$: $\bar S = 36$, $\sum S_i^2 = 162500$.
+    Estimate $a$ and $b$ using method of moments.     
+  \end{enumerate}
+
+  \item In one of the offices there are 4 bank teller: Alice, Bob, Carol and Dave. 
+  Service times are independent and 
+  exponentially distributed with unknown rate $\lambda$. 
+  Exactly at the opening time exactly 4 clients entered the office. 
+
+  Provide maximum likelihood estimate of $\lambda$ in the following cases:
+  \begin{enumerate}
+    \item Alice serviced her client in 20 minutes. 
+    Bob serviced his client in 15 minutes. 
+    Carol and Dave forgot to note the service time. 
+
+    \item Alice serviced her client in 15 minutes. 
+    Bob serviced his client in 20 minutes. 
+    Carol and Dave were servicing their first clients more than 30 minutes.
+    
+  % \item Alice and Bob serviced their first clients in less than 30 minutes. 
+  % Carol and Dave were servicing their first clients more than 30 minutes.
+
+  \item The first client was serviced in 15 minutes. 
+  The second client was serviced in 20 minutes. 
+    
+  \end{enumerate}
+
+
+  \item The random variables $X_1$, $X_2$, \ldots, $X_n$ are independent and binomially distributed $Bin(100, p)$.
+  Researcher Neznaika tries to estimate the parameter $\theta = \P(X_i = 2)$.
+
+  He has invented an estimator $\hat\theta = \begin{cases}
+    1, \text{ if } X_1 = 2, \\
+    0, \text{ otherwise.}
+  \end{cases}$.
+
+  \begin{enumerate}
+    \item Find the minimal sufficient statistic for $p$, let's denote it by $T$.
+    \item Using Rao-Blackwell theorem construct a better estimate $\hat\theta'$ using $T$.
+    \item Check whether the new estimator is unbiased.
+    \item Using delta-method estimate the variance of $\hat\theta'$ for $n=1000$ and $\sum X_i = 42000$ and 
+    find 99\% confidence interval. 
+  \end{enumerate}
+
+
 \end{enumerate}
 
-\end{comment}
 
 
 \end{document}
