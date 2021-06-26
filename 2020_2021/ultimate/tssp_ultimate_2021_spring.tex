@@ -1,0 +1,235 @@
+\documentclass[12pt]{article}
+
+\usepackage{tikz} % картинки в tikz
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amssymb, amsthm} % куча стандартных математических плюшек
+
+\usepackage{amsfonts}
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{physics}
+
+\usepackage{hyperref} % гиперссылки
+
+\usepackage{multicol} % текст в несколько столбцов
+
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series and Stochastic Processes}
+\chead{Ultimate exam}
+\rhead{2021-06-26, $+31^{\circ}$,  World Refrigiration Day :)}
+\lfoot{}
+\cfoot{DON'T PANIC}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\newcommand{\cN}{\mathcal{N}}
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, positioning, calc}
+
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainlanguage{english}
+\setotherlanguages{russian}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+\setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+\newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+
+
+
+\begin{document}
+
+You have 100 minutes. You can use A4 cheat sheet and calculator. Be brave! 
+
+
+\begin{enumerate}
+
+\item I throw a fair die until the sequence 626 appears. Let $N$ be the number of throws.
+\begin{enumerate}
+    \item What is the expected value $\E(N)$?
+    \item Write down the system of linear equations for the moment generating function of $N$. You don't need to solve it!
+\end{enumerate}
+    
+
+\item Consider the following stationary process
+\[
+y_t = 1 + 0.5 y_{t-2} + u_t + u_{t-1},    
+\]
+where random variables $u_t$ are independent $\cN(0; 4)$.
+
+\begin{enumerate}
+    \item Find the 95\% predictive interval for $y_{101}$ given that $y_{100} = 2$, $y_{99} = 3$, $y_{98} = 1$, $u_{99} = -1$.
+    \item Find the point forecast for $y_{101}$ given that $y_{100}=2$.
+\end{enumerate}
+
+
+\item I have an unfair coin with probability of heads equal to $h \in (0;1)$.
+\begin{enumerate}
+    \item Let $N$ be the number of tails before the first head. Find the MGF of $N$.
+    \item Let $S$ be the number of tails before $k$ heads (not necessary consecutive). Find the MGF of $S$.
+    \item What is the limit of $MGF_S(t)$ when $k \to \infty$ and $k \times h \to 0.5$? What is the name of the corresponding distribution?
+\end{enumerate}
+
+
+\item Consider the stochastic process $X_t = f(t) \cos (2021 W_t)$.
+\begin{enumerate}
+    \item Find $dX_t$.
+    \item Find any $f(t) \neq 0$ such that $X_t$ is a martingale.
+    \item Using $f(t)$ from the previous point find $\E(\cos (2021 W_t))$.
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+\newpage
+\section{Solution}
+
+\begin{enumerate}
+\item Let's draw the chain
+
+\begin{center}
+\begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
+\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
+\node[state]    (A)                     {$S$};
+\node[state]    (B)[right of=A]   {$6$};
+\node[state]    (C)[right of=B]   {$62$};
+\node[state]    (D)[right of=C]   {$626$};
+\path
+(A) edge[loop below]     node{}         (A)
+    edge                node{}     (B)
+(B) edge                node{}           (C)
+    edge[loop below]    node{}           (B)
+    edge[bend right]    node{}           (A)
+(C) edge                node{}           (D)
+    edge[bend right]                node{}           (B)
+    edge[bend right=40]         node{}           (A);
+\end{tikzpicture}
+\end{center}
+
+The system of equations for expected values:
+\[
+\begin{cases}
+x_s = 1 + \frac{1}{6} x_6 + \frac{5}{6} x_s \\
+x_6 = 1 + \frac{1}{6} x_6 + \frac{1}{6} x_{62}  + \frac{4}{6} x_s \\
+x_{62} = 1 + \frac{1}{6} \cdot 0 + \frac{1}{6} x_{6}  + \frac{4}{6} x_s \\
+\end{cases}    
+\]
+
+
+The system of equations for moment generating functions:
+\[
+\begin{cases}
+m_s(t) = \exp(t) \left(\frac{1}{6} m_6(t) + \frac{5}{6} m_s(t)\right) \\
+m_6(t) = \exp(t) \left( \frac{1}{6} m_6(t) + \frac{1}{6} m_{62}(t)  + \frac{4}{6} m_s(t)\right) \\
+m_{62}(t) = \exp(t) \left( \frac{1}{6} \cdot 1 + \frac{1}{6} m_{6}(t)  + \frac{4}{6} m_s(t) \right)\\
+\end{cases}    
+\]
+
+
+\item \begin{enumerate}
+    \item Let's denote by $x$ all available information, 
+    \[
+    x = \begin{pmatrix}
+        y_{100} \\
+        y_{99} \\
+        y_{98} \\
+        u_{99}
+    \end{pmatrix}    
+    \]
+    Let's use $t=100$:
+    \[
+    y_{100} = 1 + 0.5 y_{98} + u_{100} + u_{99}    
+    \]
+
+    Using all available information we obtain $u_{100}  = 1.5$ and hence
+    \[
+    y_{101} \mid x \sim  \cN(1 + 0.5 y_{99} + u_{100} ; 4)
+    \]
+
+    \item Here we work with true betas:
+    \[
+    \E(y_{101} \mid y_{100}) = \mu_y + \frac{\Cov(y_{100}, y_{101})}{\Var(y_{100})}(y_{100} - \mu_y)    
+    \]
+
+\end{enumerate}
+\item \begin{enumerate}
+    \item Moment generating function
+\[
+m_N(t) = \sum_{j=0} \exp(tj) (1-h)^j h = h \sum_{j=0} (\exp(t) (1-h))^j = \frac{h}{1 - \exp(t) (1 - h)}  
+\]
+\item As $S = N_1 + N_2 + \ldots + N_k$:
+\[
+m_S(t) =  \left( \frac{h}{1 - \exp(t) (1 - h)} \right)^k
+\]
+\item Due to my mistake the limit is easy, $0$. 
+
+In my dream it was $k\to \infty$, $k \cdot (1 - h) \to 0.5$ and that would be fun!
+
+\end{enumerate}
+
+\item \begin{enumerate}
+    \item Let's use Ito's lemma
+    \[
+    dX_t = f'(t) \cos (2021 W_t) dt - 2021 f(t) \sin (2021 W_t) dW_t + \frac{1}{2}2021^2 f(t) \cos(2021 W_t) dt    
+    \]
+    \item To make $X_t$ a martingale we should kill $dt$ term. 
+    \item As $X_t$ is martingale $\E(X_t) = \E(X_0) = f(0)$.
+    So $\E(\cos (2021 W_t)) = f(0) / f(t)$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
